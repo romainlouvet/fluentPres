@@ -1,9 +1,10 @@
 package tests;
 
+import org.fest.assertions.fluentlenium.FluentLeniumAssertions;
 import org.fluentlenium.adapter.FluentTest;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fluentlenium.core.filter.FilterConstructor.withName;
@@ -15,7 +16,7 @@ import static pages.PosteHomePage.URL_LA_POSTE;
 
 public class ZipCodeTest extends FluentTest {
 
-    public WebDriver webDriver = new FirefoxDriver();
+    public WebDriver webDriver = new ChromeDriver();
     //public WebDriver     webDriver = new HtmlUnitDriver();
 
     @Test
@@ -29,6 +30,7 @@ public class ZipCodeTest extends FluentTest {
 
         // THEN
         assertThat(find(".resultat").find("div").getTexts()).contains("27400 LOUVIERS ");
+        FluentLeniumAssertions.assertThat($(".resultat div")).hasText("27400 LOUVIERS ");
     }
 
     @Test
