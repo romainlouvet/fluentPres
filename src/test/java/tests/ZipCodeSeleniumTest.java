@@ -5,7 +5,7 @@ import static pages.PosteHomePage.URL_LA_POSTE;
 
 import java.util.List;
 
-import org.fluentlenium.adapter.FluentTest;
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * Created with IntelliJ IDEA. User: rlouvet Date: 02/09/13 Time: 11:05
  */
 
-public class ZipCodeSeleniumTest extends FluentTest {
+public class ZipCodeSeleniumTest {
 
   public WebDriver webDriver = new FirefoxDriver();
 
@@ -24,14 +24,15 @@ public class ZipCodeSeleniumTest extends FluentTest {
 
   @Test
   public void should_search_correct_zip_code() {
+
     // GIVEN
-    getDriver().get(URL_LA_POSTE);
+    webDriver.get(URL_LA_POSTE);
 
     // WHEN
-    getDriver().findElement(By.id("crit1")).sendKeys("27400");
-    getDriver().findElement(By.name("cpform")).submit();
+    webDriver.findElement(By.id("crit1")).sendKeys("27400");
+    webDriver.findElement(By.name("cpform")).submit();
 
-    List<WebElement> results = getDriver().findElements(By.className("resultat"));
+    List<WebElement> results = webDriver.findElements(By.className("resultat"));
     String s = "";
     for (WebElement we : results) {
       s += we.findElement(By.tagName("div")).getText();
@@ -44,13 +45,13 @@ public class ZipCodeSeleniumTest extends FluentTest {
   @Test
   public void should_search_unknow_zip_code() {
     // GIVEN
-    getDriver().get(URL_LA_POSTE);
+    webDriver.get(URL_LA_POSTE);
 
     // WHEN
-    getDriver().findElement(By.id("crit1")).sendKeys("27499");
-    getDriver().findElement(By.name("cpform")).submit();
+    webDriver.findElement(By.id("crit1")).sendKeys("27499");
+    webDriver.findElement(By.name("cpform")).submit();
 
-    List<WebElement> results = getDriver().findElements(By.className("resultat"));
+    List<WebElement> results = webDriver.findElements(By.className("resultat"));
     String s = "";
     for (WebElement we : results) {
       s += we.findElement(By.tagName("div")).getText();
@@ -60,9 +61,9 @@ public class ZipCodeSeleniumTest extends FluentTest {
     assertThat(s).contains("");
   }
 
-  @Override
-  public WebDriver getDefaultDriver() {
-    return webDriver;
+  @After
+  public void quit() {
+    webDriver.quit();
   }
 
 }
