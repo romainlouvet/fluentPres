@@ -17,14 +17,13 @@ import static org.fest.assertions.Assertions.assertThat;
 public class ZipCodeTestWithPage extends FluentTest {
 
   public WebDriver     webDriver = new HtmlUnitDriver();
-  // ChromeDriver
 
   @Page
   public PosteHomePage posteHomePage;
 
   @Before
   public void go() {
-    goTo("http://www.laposte.fr/sna/rubrique.php3?id_rubrique=59&recalcul=oui");
+      posteHomePage.go();
   }
 
   @Test
