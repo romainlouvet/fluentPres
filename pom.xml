@@ -12,7 +12,7 @@
         <fest-assert.version>1.4</fest-assert.version>
         <selenium-java.version>${selenium-chrome-driver.version}</selenium-java.version>
         <fluentlenium-core.version>0.9.0</fluentlenium-core.version>
-        <selenium-chrome-driver.version>2.33.0</selenium-chrome-driver.version>
+        <selenium-chrome-driver.version>2.35.0</selenium-chrome-driver.version>
         <junit.version>4.11</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -51,6 +51,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.detro.ghostdriver</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 </project>
