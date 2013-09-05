@@ -74,7 +74,7 @@ public class GhostDriverTest {
   }
 
   @After
-  public void quit() {
+  public void tearDown() throws Exception {
     webDriver.quit();
   }
 

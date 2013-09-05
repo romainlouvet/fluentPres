@@ -14,6 +14,7 @@
         <fluentlenium-core.version>0.9.0</fluentlenium-core.version>
         <selenium-chrome-driver.version>2.35.0</selenium-chrome-driver.version>
         <junit.version>4.11</junit.version>
+        <phantomjsdriver.version>1.0.3</phantomjsdriver.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -55,7 +56,7 @@
         <dependency>
             <groupId>com.github.detro.ghostdriver</groupId>
             <artifactId>phantomjsdriver</artifactId>
-            <version>1.0.3</version>
+            <version>${phantomjsdriver.version}</version>
         </dependency>
     </dependencies>
 </project>
